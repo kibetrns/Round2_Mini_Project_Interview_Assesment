@@ -1,0 +1,38 @@
+.main-feed-page {
+    background-color: #DBE1E6;
+    width: 85vw;
+    height: 100%;
+    overflow: scroll;
+    position: fixed;
+    gap: 4%;
+}
+.mfph__Bg {
+    background-color: white;
+    margin: -1% -4%;
+    padding: 2%;
+
+
+}
+.main-feed-page__Header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: fit-content;
+    margin: 1% 4%;
+}
+
+span {
+    cursor: pointer;
+}
+
+.main-feed-page__Body {
+
+}
+
+.main-feed-page__Body--Left {
+
+}
+
+.main-feed-page__Body--Support {
+
+}
