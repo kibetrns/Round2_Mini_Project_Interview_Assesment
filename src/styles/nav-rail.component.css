@@ -1,0 +1,19 @@
+.navigation-rail {
+    border-right: 2px solid #DBE1E6;
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    text-decoration: none;
+}
+
+.active {
+    color: #FFE142;
+    text-decoration: none;
+}
+
+.inactive {
+    text-decoration: none;
+    color: black;
+}
