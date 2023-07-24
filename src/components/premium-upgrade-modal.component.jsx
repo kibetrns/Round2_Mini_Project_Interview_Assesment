@@ -1,32 +1,24 @@
-import React, { useState } from "react";
-import "../styles/sign-in-modal.component.css";
+import { useState } from "react";
 import InputContainer from "./input-container.component";
-import { NavLink } from "react-router-dom";
 
-const SignInModal = ({
+const PremiumUpgradeModal = ({
   isOpen,
-  signUpModalStyles,
+  PremiumUpgradeModalStyles,
   onClose,
-  onSignUpInsteadClicked,
+  onCompletePaymentClicked,
 }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [mpesaNumber, setMpesaNumber] = useState("");
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
-    console.log("Email:", email);
-    console.log("Password:", password);
+    console.log("Mpesa Numeber:", mpesaNumber);
 
     onClose();
   };
 
-  const handleEmailInput = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handlePaswordInput = (event) => {
-    setPassword(event.target.value);
+  const handleMpesaNumberInput = (event) => {
+    setMpesaNumber(event.target.value);
   };
 
   const inputStyle = {
@@ -49,13 +41,18 @@ const SignInModal = ({
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         {/*TODO("Fix:
-        
-        close icon  should be at the top-right of the `modal-content-div` 
-        the text input should be properly aligned, does not look "good"
-        
-        ") */}
+          
+          close icon  should be at the top-right of the `modal-content-div` 
+          the text input should be properly aligned, does not look "good"
+          
+          ") */}
         <div className="modal-content__Header">
-          <h4>GET BACK IN</h4>
+            <div>
+            <h4>UNLOCK MORE FEATURES</h4>
+          <h4>PAY MORE KES 1 TO UPGRADE TO PREMIUM</h4>
+
+            </div>
+         
           <span class="material-symbols-outlined" onClick={onClose}>
             cancel
           </span>
@@ -66,23 +63,14 @@ const SignInModal = ({
           onSubmit={handleFormSubmit}
         >
           <InputContainer
-            labelTitle={"Email"}
-            value={email}
-            type={"email"}
+            labelTitle={"Mpesa Number"}
+            value={mpesaNumber}
+            type={"text"}
+            placeholder={"245712345678"}
             inputStyle={inputStyle}
             inputContainerStyle={inputContainerStyle}
             labelStyle={labelStyle}
-            onInputChange={handleEmailInput}
-          />
-
-          <InputContainer
-            labelTitle={"Password"}
-            value={password}
-            type={"password"}
-            inputStyle={inputStyle}
-            inputContainerStyle={inputContainerStyle}
-            labelStyle={labelStyle}
-            onInputChange={handlePaswordInput}
+            onInputChange={handleMpesaNumberInput}
           />
 
           <button
@@ -96,21 +84,14 @@ const SignInModal = ({
               padding: "8px 0px",
               textAlign: "center",
             }}
+            onClick={onCompletePaymentClicked}
           >
-            SIGN IN
+            COMPLETE PAYMENT
           </button>
         </form>
-
-        <p
-          onClick={onSignUpInsteadClicked}
-          style={{ color: "#FFE142", cursor: "pointer", fontWeight: "bold" }}
-        >
-          {" "}
-          I have DON'T have an account
-        </p>
       </div>
     </div>
   );
 };
 
-export default SignInModal;
+export default PremiumUpgradeModal;

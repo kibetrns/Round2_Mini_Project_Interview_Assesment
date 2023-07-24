@@ -25,11 +25,32 @@ span {
     cursor: pointer;
 }
 
+
+
 .main-feed-page__Body {
+    width: 98%;
+    margin-right: 20px;
+    display: flex;
+    justify-content: space-between;
 
 }
 
-.main-feed-page__Body--Left {
+.main-feed-page__Body--Left {    
+    width: 51vw;
+}
+
+.main-feed-page__Body--Left--header {
+   
+
+}
+
+.main-feed-page__Body--Left--header--Bg {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: fit-content;
+    margin: 4% 4%;
+    width: 51vw;
 
 }
 

@@ -72,7 +72,7 @@ const SignUpModal = ({
         
         ") */}
         <div className="modal-content__Header">
-          <h2>Create Account</h2>
+          <h4>CREATE ACCOUNT</h4>
           <span class="material-symbols-outlined" onClick={onClose}>
             cancel
           </span>
@@ -144,7 +144,7 @@ const SignUpModal = ({
               textAlign: "center",
             }}
           >
-            Sign Up
+            SIGN UP
           </button>
         </form>
 
