@@ -1,6 +1,7 @@
 {
+  "homepage": "https://kibetrns.github.io/Round2_Mini_Project_Interview_Assesment",
   "name": "round2-mini-project-interview-assesment",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -11,8 +12,6 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://kibetrns.github.io/Round2_Mini_Project_Interview_Assesment"
-  ,
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
