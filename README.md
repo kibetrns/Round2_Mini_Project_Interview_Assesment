@@ -12,3 +12,6 @@ Clone or download the project, in the project directory, you can run:
 
 Runs the app in the development mode.\
 Open [http://localhost:5173](http://localhost:5173) to view it in your browser.
+
+### See it Live
+Click [here.](https://64be2e6f33a8cd2ae4944f83--stellar-starship-533cf3.netlify.app)
