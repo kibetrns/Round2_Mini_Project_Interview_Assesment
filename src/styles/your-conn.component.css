@@ -1,0 +1,15 @@
+.your-connection-card {
+    background-color: white;
+    padding: 0px 32px;
+    border-radius: 4%;
+}
+
+.your-connection-card__Header {
+    border-bottom: 1px solid  #D9D9D9;
+    text-align: center;
+
+}
+
+.your-connection-card__Body {
+    
+}
