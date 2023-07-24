@@ -8,7 +8,7 @@ const NavRail = () => {
       <NavRailItem
         icon={<span class="material-symbols-outlined">star</span>}
         title={"Star App"}
-        onClick={console.log("TODO")}
+        onClick={e => alert("Not that deep :) .... ")}
       />
 
       <NavLink

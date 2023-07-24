@@ -10,7 +10,8 @@ import {
 import App from './App';
 import MainFeedPage from './pages/main-feed-page';
 import MainProfilePage from './pages/main-profile-page';
-
+import MyPostsSection from './components/my-posts-section';
+import MyFollowersSection from './components/my-followers-section';
 
 const router = createBrowserRouter([
   {
@@ -22,8 +23,19 @@ const router = createBrowserRouter([
         element: <MainFeedPage />,
       },
       {
-        path: "profile",
+        path: "profile/",
         element: <MainProfilePage />,
+        children: [
+          {
+            path :"myfollowers",
+            element: <MyPostsSection />
+          },
+          {
+            path: "following",
+            element: <MyFollowersSection />
+
+          }
+        ]
       },
     ],
   },

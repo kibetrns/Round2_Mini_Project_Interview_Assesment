@@ -1,0 +1,42 @@
+.profile-card-container {
+    width: 90%;
+    margin: 1%;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 32px;
+    padding: 2%;
+
+}
+
+.profile-card-container__Left {
+    margin-right: 8%;
+
+
+}
+
+.profile-card-continer__Right{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.pfcRTL-Item {
+    display: flex;
+    align-items: center;
+
+}
+
+.profile-card-continer__Right--Top {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.profile-card-container__Right--Top--Left {
+
+}
+
+.profile-card-container__Right--Top--Right  {
+
+}

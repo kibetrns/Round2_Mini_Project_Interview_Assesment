@@ -1,0 +1,8 @@
+.main-feed-page {
+    background-color: #DBE1E6;
+    width: 85vw;
+    height: 100%;
+    overflow: scroll;
+    position: fixed;
+    gap: 4%;
+}
