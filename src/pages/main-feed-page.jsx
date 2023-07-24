@@ -11,6 +11,8 @@ import PremiumUpgradeModal from "../components/premium-upgrade-modal.component";
 
 
 const fetchPosts = async () => {
+
+  //TODO("Support multiple screens")
   try {
     const response = await fetch("https://jsonplaceholder.typicode.com/posts");
     const data = await response.json();
@@ -28,6 +30,18 @@ const fetchComments = async () => {
     return data;
   } catch (error) {
     console.error("Error fetching comments:", error);
+    return [];
+  }
+};
+
+
+const fetchUsers = async (limit) => {
+  try {
+    const response = await fetch(`https://jsonplaceholder.typicode.com/users?_limit=${limit}`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching users:", error);
     return [];
   }
 };
@@ -144,6 +158,8 @@ const MainFeedPage = () => {
   const [filteredPosts, setFilteredPosts] = useState([]);
   const [filteredComments, setFilteredComments] = useState([]);
 
+  const [users, setUsers] = useState([]);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -152,99 +168,26 @@ const MainFeedPage = () => {
 
       const fetchedComments = await fetchComments();
       setComments(fetchedComments);
+
+        const fetchedUsers = await fetchUsers(5); // Fetch the first 5 users
+        setUsers(fetchedUsers);
+      
     };
 
     fetchData();
   }, []);
 
   useEffect(() => {
-    // Filter posts based on the search input
     const filteredPosts = posts.filter((post) =>
       post.title.toLowerCase().includes(searchInput.toLowerCase())
     );
     setFilteredPosts(filteredPosts);
 
-    // Filter comments based on the search input
     const filteredComments = comments.filter((comment) =>
       comment.name.toLowerCase().includes(searchInput.toLowerCase())
     );
     setFilteredComments(filteredComments);
   }, [searchInput, posts, comments]);
-
-
-  const users = [
-    {
-      id: 1,
-      name: "Leanne Graham",
-      username: "Bret",
-      email: "Sincere@april.biz",
-      address: {
-        street: "Kulas Light",
-        suite: "Apt. 556",
-        city: "Gwenborough",
-        zipcode: "92998-3874",
-        geo: {
-          lat: "-37.3159",
-          lng: "81.1496",
-        },
-      },
-      phone: "1-770-736-8031 x56442",
-      website: "hildegard.org",
-      company: {
-        name: "Romaguera-Crona",
-        catchPhrase: "Multi-layered client-server neural-net",
-        bs: "harness real-time e-markets",
-      },
-    },
-    {
-      id: 2,
-      name: "Ervin Howell",
-      username: "Antonette",
-      email: "Shanna@melissa.tv",
-      address: {
-        street: "Victor Plains",
-        suite: "Suite 879",
-        city: "Wisokyburgh",
-        zipcode: "90566-7771",
-        geo: {
-          lat: "-43.9509",
-          lng: "-34.4618",
-        },
-      },
-      phone: "010-692-6593 x09125",
-      website: "anastasia.net",
-      company: {
-        name: "Deckow-Crist",
-        catchPhrase: "Proactive didactic contingency",
-        bs: "synergize scalable supply-chains",
-      },
-    },
-    {
-      id: 3,
-      name: "Clementine Bauch",
-      username: "Samantha",
-      email: "Nathan@yesenia.net",
-      address: {
-        street: "Douglas Extension",
-        suite: "Suite 847",
-        city: "McKenziehaven",
-        zipcode: "59590-4157",
-        geo: {
-          lat: "-68.6102",
-          lng: "-47.0653",
-        },
-      },
-      phone: "1-463-123-4447",
-      website: "ramiro.info",
-      company: {
-        name: "Romaguera-Jacobson",
-        catchPhrase: "Face to face bifurcated interface",
-        bs: "e-enable strategic applications",
-      },
-    },
-  ];
-
-
 
 
   return (
@@ -300,6 +243,8 @@ const MainFeedPage = () => {
               onBlockPostClicked={handleOnBlockPostClicked}
             />
           ))}
+
+          /*TODO("Implement `gracefull loading` based on privilages and membership ")*/
 
 
           <GenericButton
